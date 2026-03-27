@@ -1,0 +1,5 @@
+home: / || fa fa-home
+tags: /tags/ || fa fa-tags
+archives: /archives/ || fa fa-archive
+github: https://github.com/zerlindalee || fa fa-github
+about: /about/ || fa fa-user
