@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "WebSearch",
+      "Bash(curl:*)",
+      "Bash(pkill:*)",
+      "Bash(hexo clean:*)",
+      "Bash(hexo generate:*)",
+      "Bash(hexo server:*)",
+      "Bash(taskkill:*)",
+      "Bash(netstat -ano)",
+      "Bash(cd:*)",
+      "Bash(netstat:*)",
+      "Bash(tasklist:*)",
+      "Bash(git branch:*)",
+      "Bash(git checkout:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}

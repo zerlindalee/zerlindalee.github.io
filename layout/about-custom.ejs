@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= page.title %> | <%= config.title %></title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    .about-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      overflow: hidden;
+    }
+
+    .about-container::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+      background-size: 50px 50px;
+      animation: float 20s linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(50px, 50px); }
+    }
+
+    .about-content {
+      text-align: center;
+      color: white;
+      z-index: 10;
+      padding: 40px;
+      animation: fadeInUp 1s ease-out;
+      position: relative;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .avatar {
+      margin-bottom: 30px;
+    }
+
+    .avatar img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 5px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .avatar img:hover {
+      transform: scale(1.05) rotate(5deg);
+    }
+
+    .name {
+      font-size: 3em;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .tagline {
+      font-size: 1.3em;
+      margin-bottom: 40px;
+      min-height: 30px;
+    }
+
+    .typing-text {
+      border-right: 2px solid white;
+      animation: blink 0.7s step-end infinite;
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    .quote {
+      max-width: 600px;
+      margin: 0 auto 40px;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .quote p {
+      font-size: 1.1em;
+      line-height: 1.8;
+      margin: 0;
+      font-style: italic;
+    }
+
+    .quote-source {
+      margin-top: 15px;
+      font-size: 0.9em;
+      opacity: 0.8;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      text-decoration: none;
+    }
+
+    .social-links a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .social-links svg {
+      fill: white;
+    }
+  </style>
+</head>
+<body>
+  <%- page.content %>
+
+  <script>
+    (function() {
+      const taglines = [
+        '热爱编程，热爱生活',
+        '在代码的世界里探索无限可能',
+        '用技术改变世界'
+      ];
+
+      let taglineIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+      const typingSpeed = 100;
+      const deletingSpeed = 50;
+      const pauseTime = 2000;
+
+      function type() {
+        const typingElement = document.querySelector('.typing-text');
+
+        if (!typingElement) return;
+
+        const currentTagline = taglines[taglineIndex];
+
+        if (isDeleting) {
+          typingElement.textContent = currentTagline.substring(0, charIndex - 1);
+          charIndex--;
+        } else {
+          typingElement.textContent = currentTagline.substring(0, charIndex + 1);
+          charIndex++;
+        }
+
+        let speed = isDeleting ? deletingSpeed : typingSpeed;
+
+        if (!isDeleting && charIndex === currentTagline.length) {
+          speed = pauseTime;
+          isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+          isDeleting = false;
+          taglineIndex = (taglineIndex + 1) % taglines.length;
+        }
+
+        setTimeout(type, speed);
+      }
+
+      // Start typing animation
+      setTimeout(type, 500);
+    })();
+  </script>
+</body>
+</html>
