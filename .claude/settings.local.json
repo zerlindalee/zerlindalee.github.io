@@ -15,7 +15,23 @@
       "Bash(tasklist:*)",
       "Bash(git branch:*)",
       "Bash(git checkout:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git config:*)",
+      "Read(//c/Users/ASUS/**)",
+      "Read(//d/ideaWorkSpace/zerlindalee.github.io/$HOME/**)",
+      "Bash(git ls-remote:*)",
+      "Bash(ping -n 2 github.com)",
+      "Bash(nslookup github.com)",
+      "Bash(echo $HTTP_PROXY $HTTPS_PROXY $http_proxy $https_proxy)",
+      "Bash(ls ~/.ssh/id_*)",
+      "Bash(git remote:*)",
+      "Bash(ssh -T git@github.com)",
+      "Bash(ssh-keygen -t ed25519 -C \"840446169@qq.com\" -f ~/.ssh/id_ed25519 -N \"\")",
+      "Bash(ssh-add -l)",
+      "Bash(ssh -i ~/.ssh/id_ed25519 -T git@github.com)",
+      "Bash(ssh -vT git@github.com)"
     ]
   }
 }
