@@ -1,0 +1,94 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1777463745670,
+  "projectRoot": "d:\\ideaWorkSpace\\zerlindalee.github.io",
+  "techStack": {
+    "languages": [
+      {
+        "name": "JavaScript/TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "package.json"
+        ]
+      }
+    ],
+    "frameworks": [],
+    "packageManager": "yarn",
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": "yarn build",
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": null,
+    "scripts": {
+      "build": "hexo generate",
+      "clean": "hexo clean",
+      "deploy": "hexo deploy",
+      "server": "hexo server"
+    }
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "public"
+    ],
+    "gitBranches": null
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "layout": {
+      "path": "layout",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1777463745639,
+      "keyFiles": [
+        "about-custom.ejs"
+      ]
+    },
+    "public": {
+      "path": "public",
+      "purpose": "Public files",
+      "fileCount": 1,
+      "lastAccessed": 1777463745640,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
+    "scaffolds": {
+      "path": "scaffolds",
+      "purpose": null,
+      "fileCount": 3,
+      "lastAccessed": 1777463745650,
+      "keyFiles": [
+        "draft.md",
+        "page.md",
+        "post.md"
+      ]
+    },
+    "source": {
+      "path": "source",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1777463745651,
+      "keyFiles": []
+    },
+    "themes": {
+      "path": "themes",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1777463745651,
+      "keyFiles": []
+    }
+  },
+  "hotPaths": [],
+  "userDirectives": []
+}
