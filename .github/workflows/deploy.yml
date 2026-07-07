@@ -1,0 +1,35 @@
+name: Deploy Hexo
+
+on:
+  push:
+    branches:
+      - source
+
+permissions:
+  contents: write
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 拉取 source 源码
+        uses: actions/checkout@v4
+
+      - name: 安装 Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'yarn'
+
+      - name: 安装依赖（按 yarn.lock 锁定）
+        run: yarn install --frozen-lockfile
+
+      - name: 编译生成网页
+        run: npx hexo generate
+
+      - name: 部署到 master 分支
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: master
