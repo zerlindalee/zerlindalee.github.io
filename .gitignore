@@ -6,3 +6,7 @@ node_modules/
 public/
 .deploy*/
 _multiconfig.yml
+
+# Claude Code / oh-my-claudecode 本地工具状态,不纳入博客仓库
+.claude/
+.omc/
