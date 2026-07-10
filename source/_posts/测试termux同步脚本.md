@@ -5,3 +5,4 @@ tags: []
 categories: []
 ---
 测试termux同步脚本
+演示脚本同步，自动部署
